@@ -68,6 +68,8 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
+#    - audios/
+
     - audios/Top-of-the-Heap-RCK011201.mp3
     - audios/Gloria-in-D-Major-RV-589-Qui-Sedes-Ad-Dexteram-Patris-Allegro-CLH011001.mp3
     - audios/From-Beyond_15_EXT01121.mp3

@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //******
   bool   isPlaying = false;
   final assetsAudioPlayer = AssetsAudioPlayer();
-  int all=-1;
+  int all=0;
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +87,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     //   color: Colors.pink,
                     // ),
                     trailing: IconButton(
-                      onPressed: (){
+                      onPressed: () async {
+
+                           toast(context, "You selected: $title");
+                            await _player.setAsset(path);
+                            await _player.play();
+
+
                         if(assetsAudioPlayer.isPlaying.value)
                           {
                             assetsAudioPlayer.pause();
@@ -100,15 +106,15 @@ class _MyHomePageState extends State<MyHomePage> {
                           all=index;
                         });
                       },
-                      icon: isPlaying && all==index? Icon(Icons.pause) : Icon(Icons.play_arrow)),
+                      icon: isPlaying  && all==index? Icon(Icons.pause) : Icon(Icons.play_arrow)),
 
                    iconColor: Colors.pink,
 
-                   onTap: () async {
-                   toast(context, "You selected: $title");
-                    await _player.setAsset(path);
-                    await _player.play();
-                    }
+                   // onTap: () async {
+                   // // toast(context, "You selected: $title");
+                   // //  await _player.setAsset(path);
+                   // //  await _player.play();
+                   //  }
                          ),
                 );
               },
